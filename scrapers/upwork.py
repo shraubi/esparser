@@ -37,9 +37,12 @@ SEARCH_QUERIES = [
     ("ETL", senders[0]),
     ("airflow", senders[0]),
     ("DevOps", senders[0]),
-    ("AWS", senders[0]),
+    ("Amazon Web Services", senders[0]),
+    ("Amazon EC2", senders[0]),
     ("terraform", senders[0]),
     ("python", senders[1]),
+    ("Docker", senders[1]),
+    ("GitHub", senders[1]),
     ("GCP", senders[0]),
 ]
 
