@@ -1,0 +1,2 @@
+*/5 * * * * bash -c '/app/run.sh >> /app/cron.log 2>&1'
+10 */8 * * * /sbin/reboot
