@@ -1,9 +1,9 @@
-name: deploy_on_push
+name: aws_push
 
 on:
   push:
     branches:
-      - 'stage'
+      - 'main'
 
 jobs:
     runs-on: ubuntu-latest
