@@ -25,11 +25,9 @@ ENV UPWORK_PASS="Uu4YpyPhhCtZbZR"
 ENV TG_BOT_RECEIVERS="406962410,793022435,240372740,5592590203,85537963,191591177"
 ENV UPWORK_IMPORTANT_BOT_TOKEN=5588913168:AAFcfMIzx82ZABMvKbWyqIauclG9E7A-kyE
 ENV UPWORK_ALLPYTHON_BOT_TOKEN=5510978330:AAGcrTNnlTMnyFA8baKbbQMy80FGNPzOtiU
-ENV DB_CONN=postgresql://postgres:uparser123@uparser.cdwuxqsxjd0r.eu-central-1.rds.amazonaws.com:5432
 ENV PYTHONPATH="${PYTHONPATH}:/opt/:/app/:"
 
 ADD run.sh /app/
-ADD .env /app/
 ADD cron /etc/cron.d/cron
 RUN chmod 0644 /etc/cron.d/cron
 RUN chmod 0744 /app/run.sh
