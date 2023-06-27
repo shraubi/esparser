@@ -20,9 +20,9 @@ from selenium.webdriver import Chrome
 
 
 BAD_COUNTRIES = ["India", "Pakistan", "Nigeria"]
-TIME_IN_PAST = timedelta(minutes=5)
+TIME_IN_PAST = timedelta(minutes=6)
 MIN_BUDGET = 600
-MAX_RANGE_FROM = 40
+MAX_RANGE_FROM = 35
 senders = [
     os.getenv("UPWORK_IMPORTANT_BOT_TOKEN"),
     os.getenv("UPWORK_ALLPYTHON_BOT_TOKEN"),
@@ -30,18 +30,18 @@ senders = [
 
 receivers = str(os.getenv("TG_BOT_RECEIVERS")).split(",")
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 SEARCH_QUERIES = [
-    ("data+engineer", senders[0]),
+   ("data+engineer", senders[0]),
     ("ETL", senders[0]),
     ("airflow", senders[0]),
     ("DevOps", senders[0]),
     ("Amazon Web Services", senders[0]),
-    ("Amazon EC2", senders[0]),
+    ("Amazon EC2", senders[1]),
     ("terraform", senders[0]),
     ("python", senders[1]),
-    ("Docker", senders[1]),
+    ("Docker", senders[0]),
     ("GitHub", senders[1]),
     ("GCP", senders[0]),
 ]
@@ -210,7 +210,10 @@ def parse_xml(query) -> list[str]:
         urls.append(link)
         ids.add(ad_id)
         count += 1
+        text = f"{entry.title}\n{link}"
+        #send_msg(senders[1], text)
     print(f"{now} {skill_query} {TIME_IN_PAST} {count}")
+
     with open("ad_ids.pkl", 'wb') as f:
         pickle.dump(ids, f)
 
